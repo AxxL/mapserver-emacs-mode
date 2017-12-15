@@ -81,7 +81,7 @@
 (defconst mapserver-font-lock-keywords-1
   (list
    ;; These define the beginning and end of each MapServer entity definition
-   '("\\<\\(C\\(?:L\\(?:ASS\\|USTER\\)\\|OMPOSITE\\)\\|END\\|FEATURE\\|GRID\\|JOIN\\|L\\(?:A\\(?:BEL\\|YER\\)\\|E\\(?:ADER\\|GEND\\)\\)\\|MAP\\|PROJECTION\\|QUERYMAP\\|REFERENCE\\|S\\(?:TYLE\\|YMBOL\\)\\|WEB\\)\\>" . font-lock-builtin-face)
+   '("\\<\\(C\\(?:L\\(?:ASS\\|USTER\\)\\|OMPOSITE\\)\\|END\\|FEATURE\\|GRID\\|JOIN\\|L\\(?:A\\(?:BEL\\|YER\\)\\|E\\(?:ADER\\|GEND\\)\\)\\|MAP\\|PROJECTION\\|QUERYMAP\\|REFERENCE\\|S\\(?:TYLE\\|YMBOL\\)\\|WEB\\|METADATA\\|VALIDATION\\)\\>" . font-lock-builtin-face)
    
   '("\\('\\w*'\\)" . font-lock-variable-name-face))
   "Minimal highlighting expressions for MapServer mode.")
@@ -135,7 +135,7 @@
 		    (setq not-indented nil))
 		;; CLASS FEATURE FONTSET GRID JOIN LAYER LEGEND MAP OUTPUTFORMAT POINTS PROJECTION QUERYMAP REFERENCE SCALEBAR STYLE WEB
 		(if (or (looking-at "^SYMBOL$")
-			(looking-at "^[ \t]*\\(CLASS$\\|COMPOSITE\\|FEATURE\\|FONTSET\\|GRID\\|JOIN\\|LABEL$\\|LAYER\\|LEGEND\\|MAP\\|METADATA\\|OUTPUTFORMAT\\|POINTS\\|PROJECTION\\|QUERYMAP\\|REFERENCE\\|SCALEBAR\\|SYMBOL$\\|SYMBOLSET\\|STYLE\\|WEB\\)"))	; This hint indicates that we need to indent an extra level
+			(looking-at "^[ \t]*\\(CLASS$\\|COMPOSITE\\|FEATURE\\|FONTSET\\|GRID\\|JOIN\\|LABEL$\\|LAYER\\|LEGEND\\|MAP\\|METADATA\\|OUTPUTFORMAT\\|POINTS\\|PROJECTION\\|QUERYMAP\\|REFERENCE\\|SCALEBAR\\|SYMBOL$\\|SYMBOLSET\\|STYLE\\|WEB\\|VALIDATION\\)"))	; This hint indicates that we need to indent an extra level
 		    (progn
 		      (setq cur-indent (+ (current-indentation) mapserver-mode-tab-width)) ; Do the actual indenting
 		      (setq not-indented nil))
